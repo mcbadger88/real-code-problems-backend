@@ -1,4 +1,4 @@
-//pls require the model here//
+const Attempt = require('../models/Attempt')
 
 const index = async (req, res) => {
     try{

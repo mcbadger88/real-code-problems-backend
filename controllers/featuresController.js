@@ -1,4 +1,4 @@
-//pls require the model here//
+const Feature = require('../models/Feature')
 
 const index = async (req, res) => {
     try{
