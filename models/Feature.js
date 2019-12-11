@@ -1,0 +1,28 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const featureSchema = new Schema({
+    title: {
+        type: String, 
+        required: true
+    },
+    number: {
+        type: Number
+    },
+
+    scenarios: {
+        type: [{
+            scenarioTitle: {
+                type: String
+            },
+            lineNumbers: [
+                {type: Schema.Types.ObjectId, ref: testLine}
+            ]
+        }]
+    }
+
+})
+
+const Feature = mongoose.model('feature', featureSchema);
+
+module.exports = Feature;
