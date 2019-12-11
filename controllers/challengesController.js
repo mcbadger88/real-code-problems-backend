@@ -1,4 +1,4 @@
-//pls require the model here//
+const Challenge = require('../models/Challenge')
 
 const index = async (req, res) => {
     try{

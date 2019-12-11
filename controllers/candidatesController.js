@@ -1,4 +1,4 @@
-//pls require the model here//
+const Candidate = require('../models/Candidate')
 
 const index = async (req, res) => {
     try{
