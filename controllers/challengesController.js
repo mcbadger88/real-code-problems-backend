@@ -19,6 +19,8 @@ const create = async(req, res) => {
 
 const show = async(req, res) => {
     try{
+        res.send('challenges show')
+
     
     } catch(error){
         res.status(404).send(error)

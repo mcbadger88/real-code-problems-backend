@@ -2,7 +2,7 @@
 
 const index = async (req, res) => {
     try{
-        res.send('hey')
+        res.send('candidates index')
 
     } catch(error){
         res.status(404).send(error)
@@ -19,6 +19,8 @@ const create = async(req, res) => {
 
 const show = async(req, res) => {
     try{
+        res.send('candidates show')
+
     
     } catch(error){
         res.status(404).send(error)
@@ -41,10 +43,19 @@ const destroy = async(req, res) => {
     }
 }
 
+const lookup = async(req, res) => {
+    try{
+     
+    } catch(error){
+        res.status(404).send(error)
+    }
+}
+
 module.exports = {
     index,
     create,
     show,
     update,
-    destroy
+    destroy,
+    lookup
 }
