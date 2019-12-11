@@ -17,7 +17,7 @@ const challengeSchema = new Schema({
         default: true
     },
     features: [
-        {type: Schema.Types.ObjectId, ref: 'features'}
+        {type: Schema.Types.ObjectId, ref: 'Feature'}
     ]
 })
 

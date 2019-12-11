@@ -20,7 +20,8 @@ const attemptSchema = new Schema({
         type: String
     },
     uuid: {
-        type: Number
+        type: Number,
+        unique: true
     },
     timestamps: { 
         created_at: 'created_at', 

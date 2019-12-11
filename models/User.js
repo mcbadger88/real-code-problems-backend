@@ -6,7 +6,7 @@ const userSchema = new Schema({
         type: String
     },
     role_id: {
-        type: Schema.Types.ObjectId, ref: 'role'
+        type: Schema.Types.ObjectId, ref: 'Role'
     }
     
 })

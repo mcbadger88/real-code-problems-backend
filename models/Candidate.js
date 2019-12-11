@@ -17,12 +17,9 @@ const candidateSchema = new Schema({
     github: {
         type: String
     },
-    bio: {
+    image: {
         type: String
     },
-    // image: {
-        
-    // },
     attempts: [
         {type: Schema.Types.ObjectId, ref: 'Attempt'}
     ],
