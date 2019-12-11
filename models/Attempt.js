@@ -23,10 +23,8 @@ const attemptSchema = new Schema({
         type: Number,
         unique: true
     },
-    timestamps: { 
-        created_at: 'created_at', 
-        updated_at: 'updated_at' 
-    }
+}, {
+    timestamps: true
 })
 
 const Attempt = mongoose.model('attempt', attemptSchema);
