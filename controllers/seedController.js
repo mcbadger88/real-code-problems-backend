@@ -13,34 +13,39 @@ const seedAll = async (req, res) => {
         // TestLines
         const testLines = [
             {
-                testString: `When "Jane" visits the main page`,
-                helperImage: "link_to_image",
-                lineNumber: 7
-            },
-            {
-                testString: `And follows "New Article"`,
-                helperImage: "link_to_image",
+                testString: `And follows "New Article"                `,
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/01_and_follows_new_article.jpg",
                 lineNumber: 8
             },
             {
                 testString: `Then she sees a "New Article" form`,
-                helperImage: "link_to_image",
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/02_then_she_sees_a_new_article_form.jpg",
                 lineNumber: 10
             },
             {
-                testString: `When she fills in the fields`,
-                helperImage: "link_to_image",
+                testString: `When she fills in the feilds`,
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/03_when_she_fills_in_the_fields.jpg",
                 lineNumber: 12
             },
             {
-                testString: `And she clicks "Create Article"`,
-                helperImage: "link_to_image",
-                lineNumber: 15
+                testString: `Then "she" sees success message "Article was successfully created."`,
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/04_then_she_sees_success_message_article_was_successfully_created.jpg",
+                lineNumber: 12
             },
             {
-                testString: `Then "she" sees success message "Article was successfully created."`,
-                helperImage: "link_to_image",
-                lineNumber: 17
+                testString: `And "she" sees the article with the content`,
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/05_and_she_sees_the_article_with_the_content.jpg",
+                lineNumber: 18
+            },
+            {
+                testString: `When "John" comments "Well done"`,
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/06_when_john_comments_well_done.jpg",
+                lineNumber: 13
+            },
+            {
+                testString: `Then "he" sees success message "Comment was successfully created."`,
+                helperImage: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/helper_images/07_then_he_sees_success_message_comment_was_successfully_created.jpg",
+                lineNumber: 15
             }
         ];
         for (testLine of testLines) {
@@ -50,22 +55,22 @@ const seedAll = async (req, res) => {
         // Features
         const features = [
             {
-                title: "Make a header",
+                title: "Can create blog posts",
                 number: 1,
                 scenarios: [
                     {
-                        scenarioTitle: "Make a header",
-                        lineNumbers: [allTestLines[0]._id, allTestLines[1]._id, allTestLines[2]._id]
+                        scenarioTitle: "Jane goes to the site and creates a blog post",
+                        lineNumbers: [allTestLines[0]._id, allTestLines[1]._id, allTestLines[2]._id, allTestLines[3]._id, allTestLines[4]._id]
                     }
                 ]
             },
             {
-                title: "Make a footer",
+                title: "Can comment on blog posts",
                 number: 2,
                 scenarios: [
                     {
-                        scenarioTitle: "Make a footer",
-                        lineNumbers: [allTestLines[3]._id, allTestLines[4]._id, allTestLines[5]._id]
+                        scenarioTitle: "John and James comment on Jane's blog post",
+                        lineNumbers: [allTestLines[5]._id, allTestLines[6]._id]
                     }
                 ]
             }
@@ -77,9 +82,9 @@ const seedAll = async (req, res) => {
         // Challenges
         const challenges = [
             {
-                title: "Blog Post",
+                title: "Blog Challenge",
                 description: "Make a blog post",
-                zipFileLocation: "Uh... here ->",
+                zipFileLocation: "https://github.com/saramic/real-code-challenge-blog/archive/master.zip",
                 active: true,
                 features: [allFeatures[0]._id, allFeatures[1]._id]
             }
@@ -91,12 +96,12 @@ const seedAll = async (req, res) => {
         // Roles
         const roles = [
             {
-                uuid: "admin",
+                uuid: "AIDS",
                 name: "admin"
             },
             {
-                uuid: "some dude",
-                name: "some dude"
+                uuid: "cheese wizz",
+                name: "audiance"
             }
         ];
         for (role of roles) {
@@ -130,9 +135,9 @@ const seedAll = async (req, res) => {
                 lastname: "Seinfeild",
                 linkedin: "jerrysignfeild@linkedin.com",
                 github: "jsmith@github.com",
-                image: "link_to_image",
+                image: "https://images-na.ssl-images-amazon.com/images/I/81GL-27MwDL._SY500_.jpg",
                 attempts: [],
-                username: "DoYouLikeJazz?"
+                username: "YouLikeJazz?"
             },
             {
                 user_id: allUsers[2]._id,
@@ -140,7 +145,7 @@ const seedAll = async (req, res) => {
                 lastname: "Reeves",
                 linkedin: "actualjohnwick@linkedin.com",
                 github: "totallyimmortal@github.com",
-                image: "link_to_image",
+                image: "https://dlisted.com/wp-content/uploads/2019/06/Keannnu.jpg",
                 attempts: [],
                 username: "YOU'REbreathtaking"
             }
@@ -152,28 +157,28 @@ const seedAll = async (req, res) => {
         // Attempts
         const attempts = [
             {
-                status: "STARTED",
+                status: "GET OUT",
                 candidate_id: allCandidates[0],
                 challenge_id: allChallenges[0],
-                submission_file: "file_location",
-                results_log: "log_location",
-                uuid: 69,
+                submission_file: null,
+                results_log: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/mock_submissions/all_failing.json",
+                uuid: 13,
             },
             {
                 status: "PASSED",
                 candidate_id: allCandidates[1],
                 challenge_id: allChallenges[0],
-                submission_file: "file_location",
-                results_log: "log_location",
+                submission_file: null,
+                results_log: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/mock_submissions/all_passing.json",
                 uuid: 42,
             },
             {
-                status: "GET OUT",
+                status: "STARTED",
                 candidate_id: allCandidates[0],
                 challenge_id: allChallenges[0],
-                submission_file: "file_location",
-                results_log: "log_location",
-                uuid: 13,
+                submission_file: null,
+                results_log: "https://raw.githubusercontent.com/saramic/real-code-challenge-blog/master/mock_submissions/all_passing.json",
+                uuid: 69,
             }
         ];
         for (attempt of attempts) {
