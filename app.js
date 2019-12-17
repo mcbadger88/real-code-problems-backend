@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
 let database = require('./db')
 //database
@@ -11,6 +12,7 @@ app.listen(PORT, () => console.log('listening on port 5000'))
 
 // dev
 app.use(morgan('dev'));
+app.use(cors());
 
 // require all routes
 app.use(require('./routes'))
