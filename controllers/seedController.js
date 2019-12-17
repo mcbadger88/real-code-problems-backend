@@ -131,20 +131,22 @@ const seedAll = async (req, res) => {
         const candidates = [
             {
                 user_id: allUsers[1]._id,
-                firsname: "Jerry",
+                firstname: "Jerry",
                 lastname: "Seinfeild",
                 linkedin: "jerrysignfeild@linkedin.com",
                 github: "jsmith@github.com",
+                bio: "[laugh track]",
                 image: "https://images-na.ssl-images-amazon.com/images/I/81GL-27MwDL._SY500_.jpg",
                 attempts: [],
                 username: "YouLikeJazz?"
             },
             {
                 user_id: allUsers[2]._id,
-                firsname: "Keanu",
+                firstname: "Keanu",
                 lastname: "Reeves",
                 linkedin: "actualjohnwick@linkedin.com",
                 github: "totallyimmortal@github.com",
+                bio: "[unequivical lad]",
                 image: "https://dlisted.com/wp-content/uploads/2019/06/Keannnu.jpg",
                 attempts: [],
                 username: "YOU'REbreathtaking"
@@ -232,8 +234,6 @@ const resetDb = async (req, res) => {
         console.log(error)
     }
 }
-
-
 
 module.exports = {
     seedAll,
