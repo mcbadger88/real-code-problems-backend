@@ -39,7 +39,6 @@ const update = async(req, res) => {
             await Candidate.updateOne({_id: newCandidate._id}, newCandidate)
         }
         res.send(newCandidate);
-        // await Candidate.updateOne({_id: req.params.id}, data)
     } catch(error){
         res.status(404).send(error)
     }
