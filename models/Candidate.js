@@ -7,7 +7,7 @@ const candidateSchema = new Schema({
         ref: 'User',
         unique: true
     },
-    firsname: {
+    firstname: {
         type: String
     },
     lastname: {
@@ -17,6 +17,9 @@ const candidateSchema = new Schema({
         type: String
     },
     github: {
+        type: String
+    },
+    bio: {
         type: String
     },
     image: {
