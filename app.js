@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const app = express();
 let database = require('./db')
 //database
-// database.connectDb()
+database.connectDb()
 
 //Listen on port
 const PORT = process.env.PORT || 5000

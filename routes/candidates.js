@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-const {index, create, show, update, destroy} = require('../controllers/candidatesController.js');
+const {index, create, show, update, destroy, lookup} = require('../controllers/candidatesController.js');
 
 router.get('/', index);
 router.post('/', create);

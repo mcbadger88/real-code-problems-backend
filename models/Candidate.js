@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const candidateSchema = new Schema({
     user_id: {
-        type: Schema.Types.ObjectId, ref: 'User'
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        unique: true
     },
     firsname: {
         type: String

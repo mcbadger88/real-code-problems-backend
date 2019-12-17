@@ -10,10 +10,10 @@ const attemptSchema = new Schema({
     candidate_id: {
         type: Schema.Types.ObjectId, ref: 'Candidate'
     },
-    challenge_id:{
+    challenge_id: {
         type: Schema.Types.ObjectId, ref: 'Challenge'
     },
-    submission_file:{
+    submission_file: {
         type: String
     },
     results_log: {
@@ -22,8 +22,9 @@ const attemptSchema = new Schema({
     uuid: {
         type: Number,
         unique: true
-    },
-}, {
+    }
+},
+{
     timestamps: true
 })
 
