@@ -40,6 +40,7 @@ const show = async(req, res) => {
     };
 };
 
+// requires body object as such: {active: false}
 const update = async(req, res) => {
     try{
         const newChallenge = await Challenge.findById(req.params.id);
