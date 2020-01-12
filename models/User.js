@@ -7,8 +7,10 @@ const userSchema = new Schema({
     },
     role_id: {
         type: Schema.Types.ObjectId, ref: 'Role'
+    },
+    github_id: {
+        type: Number
     }
-    
 })
 
 const User = mongoose.model('user', userSchema);
