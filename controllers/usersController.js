@@ -5,7 +5,8 @@ const logout = async(req, res) => {
     res.redirect(`${process.env.FRONTEND_BASE_URL}/`)
 }
 
-// user logs in (github authentication)
+
+// user logs in (this uses github authentication)
 const gitAuthentication = (req, res) => {
     console.log('gitauth function')
     res.redirect('/')
