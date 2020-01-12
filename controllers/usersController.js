@@ -35,3 +35,5 @@ module.exports = {
 }
 
 // Component did mount in the highest app component that hits a bckend route to check if somebody is logged in, if they are send their profile info.
+
+// commnent
