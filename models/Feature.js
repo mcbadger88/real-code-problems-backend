@@ -15,7 +15,7 @@ const featureSchema = new Schema({
             scenarioTitle: {
                 type: String
             },
-            lineNumbers: [
+            testLines: [
                 {type: Schema.Types.ObjectId, ref: 'TestLine'}
             ]
         }]

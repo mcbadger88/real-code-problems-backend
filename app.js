@@ -9,6 +9,12 @@ const cookieSession = require('cookie-session')
 //database
 database.connectDb()
 
+//use cors
+app.use(cors({
+    credentials: true,
+    origin: process.env.CORS_URL // 'http://localhost:3000'
+}));
+
 //Use session cookies on each route.
 app.use(cookieSession({
     // One day maximum age, in milliseconds.

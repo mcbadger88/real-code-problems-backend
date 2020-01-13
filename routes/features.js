@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const {index} = require('../controllers/challengesController.js');
+const {showWithTestLines} = require('../controllers/featuresController.js');
 
-router.get('/', index);
+console.log('inside the features routes')
+
+router.get('/:featureid', showWithTestLines)
+
+
 
 module.exports = router;

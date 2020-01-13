@@ -10,7 +10,7 @@ const index = async (req, res) => {
     };
 };
 
-// Alot of work needs to be done here. The features should be automatically generated from the zipfile, the zip file must be an actuall S3 file that we can open and read, and WOW SO MUCH ASK FOR HEALP!
+// A lot of work needs to be done here. The features should be automatically generated from the zipfile, the zip file must be an actuall S3 file that we can open and read, and WOW SO MUCH ASK FOR HEALP!
 const create = async(req, res) => {
     try{
         const data = req.body;

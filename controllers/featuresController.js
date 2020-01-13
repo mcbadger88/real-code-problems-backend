@@ -1,14 +1,20 @@
 const Feature = require('../models/Feature')
 
-const index = async (req, res) => {
+//Shows one feature (using its feature ID), populated with all related testlines.
+const showWithTestLines = async(req, res) => {
     try{
-        res.send('index - features')
+        const feature = await Feature.findById(req.params.id).populate({
+            path: 'scenarios.0.testLines',
+            model: 'testLine'
+        })
+
+        res.send(feature);
 
     } catch(error){
-        res.status(404).send(error)
-    }
-}
+        res.status(404).send(error);
+    };
+};
 
 module.exports = {
-    index
+    showWithTestLines,
 }
