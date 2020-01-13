@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const {index, show} = require('../controllers/featuresController.js');
+const {showWithTestLines} = require('../controllers/featuresController.js');
 
 console.log('inside the features routes')
 
-router.get('/all', index);
-router.get('/:id', show)
+router.get('/:featureid', showWithTestLines)
+
+
 
 module.exports = router;
