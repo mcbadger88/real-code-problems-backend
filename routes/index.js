@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+console.log('inside the index of all routes')
 
 // Importing all route files
 const attempts = require('./attempts');

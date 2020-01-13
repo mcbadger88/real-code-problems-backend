@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const {index} = require('../controllers/challengesController.js');
+const {index, show} = require('../controllers/featuresController.js');
 
-router.get('/', index);
+console.log('inside the features routes')
+
+router.get('/all', index);
+router.get('/:id', show)
 
 module.exports = router;
