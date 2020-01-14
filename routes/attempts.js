@@ -1,12 +1,11 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
-const {index, create, show, update, destroy, result} = require('../controllers/attemptsController.js');
+const {index, create, update, destroy, result} = require('../controllers/attemptsController.js');
 
 router.get('/', index);
 router.post('/', create);
-router.get('/:id', show);
-router.put('/:id', update);
+router.put('/:attemptid', update);
 router.delete('/:id', destroy);
 router.put('/:id/result', result)
 
