@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-console.log('inside the index of all routes')
 
 // Importing all route files
 const attempts = require('./attempts');
@@ -16,6 +15,5 @@ router.use('/challenges', express.json(), challenges)
 router.use('/challenges/:id/features', features)
 router.use('/:idtype/:id/attempts', express.json(), attempts)
 router.use('/user', users)
-// router.use('/users', users)
 
 module.exports = router;
