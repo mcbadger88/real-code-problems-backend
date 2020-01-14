@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
-const {showWithTestLines} = require('../controllers/featuresController.js');
+const {index} = require('../controllers/featuresController.js');
 
-router.get('/:featureid', showWithTestLines)
+router.get('/', index)
 
 module.exports = router;

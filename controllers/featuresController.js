@@ -1,14 +1,19 @@
 const Feature = require('../models/Feature')
+const Challenge = require('../models/Challenge')
 
-//Shows one feature (using its feature ID), populated with all related testlines.
-const showWithTestLines = async(req, res) => {
+//Shows all features related to the challenge (using its challenge ID), populated with all related scenarios and their testlines.
+const index = async(req, res) => {
     try{
-        const feature = await Feature.findById(req.params.id).populate({
-            path: 'scenarios.0.testLines',
-            model: 'testLine'
+        const features = await Challenge.findOne({_id: req.params.id}).populate({
+            path: 'features',
+            model: 'feature', 
+            populate: {
+                path:'scenarios.0.testLines',
+                model: 'testLine'
+            }
         })
 
-        res.send(feature);
+        res.send(features)
 
     } catch(error){
         res.status(404).send(error);
@@ -16,5 +21,5 @@ const showWithTestLines = async(req, res) => {
 };
 
 module.exports = {
-    showWithTestLines,
+    index
 }
