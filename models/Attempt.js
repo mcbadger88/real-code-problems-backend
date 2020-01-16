@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const attemptSchema = new Schema({
     status: { 
         type: String,
-        enum : ['STARTED', 'SUBMITTED', 'PASSED', 'GET OUT'],
+        enum : ['STARTED', 'SUBMITTED', 'PASSED', 'FAILED'],
         default: 'STARTED'
     },
     candidate_id: {

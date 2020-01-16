@@ -11,6 +11,9 @@ const index = async (req, res) => {
             const candidateAttempts = await Attempt.find({candidate_id: id}).populate({
                 path: 'challenge_id',
                 model: 'challenge'
+            }).populate({
+                path: 'candidate_id',
+                model: 'candidate'
             })
 
             res.status(200).send(candidateAttempts)
