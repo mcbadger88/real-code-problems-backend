@@ -1,4 +1,6 @@
 const Attempt = require('../models/Attempt')
+const AWS = require('aws-sdk');
+const uuidv1 = require('uuid/v1');
 
 // returns a list of attempts, with populated candidate or challenge data, depending on the idtype.
 // http://localhost:5000/candidates/5df865457947111ec1a81cad/attempts
@@ -64,6 +66,35 @@ const update = async(req, res) => {
     }
 }
 
+const upload = async(req, res) => {
+    console.log(process.env.BUCKET)
+    console.log('hit file upload route')
+    const { image } = req.files
+
+    let fileParams = {
+        Bucket: process.env.BUCKET,
+        Body: image[0].buffer,
+        Key: uuidv1(),
+        ACL: 'public-read',
+        ContentType: image[0].mimetype
+    }
+
+    let s3credentials = new AWS.S3({
+        accessKeyId: process.env.ACCESSKEYID,
+        secretAccessKey: process.env.SECRETACCESSKEY
+    });
+
+    s3credentials.upload(fileParams, (err, data) => {
+        if (err) {
+            res.send('you got an error')
+        } else {
+            console.log(data.Location)
+            res.send('all good')
+        }
+    })
+    //TODO: Should now update attempts array with the URL of where this file is stored on s3. You can find the URL using data.Location.
+}
+
 const destroy = async(req, res) => {
     try{
         await Attempt.deleteOne({_id: req.params.attemptid})
@@ -86,5 +117,6 @@ module.exports = {
     create,
     update,
     destroy,
-    result
+    result,
+    upload
 }
