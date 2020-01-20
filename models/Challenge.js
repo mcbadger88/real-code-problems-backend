@@ -18,7 +18,10 @@ const challengeSchema = new Schema({
     },
     features: [
         {type: Schema.Types.ObjectId, ref: 'Feature'}
-    ]
+    ],
+    externalIdentifier: {
+        type: String
+    }
 })
 
 const Challenge = mongoose.model('challenge', challengeSchema);

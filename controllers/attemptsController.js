@@ -44,6 +44,7 @@ const create = async(req, res) => {
         const data = req.body;
         data.status = 'STARTED'
         data.submission_file = 'null'
+        data.uuid = uuidv1()
 
         await Attempt.create(data)
         res.send(data)
