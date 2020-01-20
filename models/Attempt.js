@@ -20,8 +20,7 @@ const attemptSchema = new Schema({
         type: String
     },
     uuid: {
-        type: Number,
-        unique: true
+        type: String,
     }
 },
 {
