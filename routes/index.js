@@ -14,6 +14,7 @@ router.use('/candidates', express.json(), candidates);
 router.use('/challenges', express.json(), challenges)
 router.use('/challenges/:id/features', features)
 router.use('/:idtype/:id/attempts', express.json(), attempts)
+router.use('/seed', express.json(), seed)
 router.use('/user', users)
 
 module.exports = router;
