@@ -53,8 +53,15 @@ const create = async(req, res) => {
 }
 
 const update = async(req, res) => {
+    console.log("in attempt update")
+    console.log(req)
+    
+    //look up the attempt by the attempt uuid ModelObj.findOne({ 'uuid': IdValue}).exec(callback);
+    //send the req.body to michaels API "https://stg-real-code-runner.herokuapp.com/submissions"
+    // if successful, save attempt.status to "SUBMITTED"
+    // return the results of Michaels API call 
     try{
-       const updatedAttempt = await Attempt.findById(req.params.attemptid);
+    //    const updatedAttempt = await Attempt.findOne({ 'uuid': IdValue})findById(req.params.attemptid);
        const data = req.body;
        for (key in data){
            updatedAttempt[key] = data[key]
