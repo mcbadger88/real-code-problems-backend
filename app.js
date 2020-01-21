@@ -32,7 +32,6 @@ app.listen(PORT, () => console.log(`listening on port ${PORT}`))
 
 // dev
 app.use(morgan('dev'));
-app.use(cors());
 
 // require all routes
 app.use(require('./routes'))
