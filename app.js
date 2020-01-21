@@ -5,6 +5,7 @@ const app = express();
 let database = require('./db')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
+require('dotenv').config()
 
 //database
 database.connectDb()
@@ -32,7 +33,6 @@ app.listen(PORT, () => console.log(`listening on port ${PORT}`))
 
 // dev
 app.use(morgan('dev'));
-app.use(cors());
 
 // require all routes
 app.use(require('./routes'))
