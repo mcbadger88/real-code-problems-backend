@@ -86,20 +86,16 @@ const update = async(req, res) => {
              }
         })
 
-        console.log(response, "response")
+        console.log(response.status, "response")
+        console.log(typeof(response.status), "response")
 
 
 
             
-        // if () {
-        //     updatedAttempt[status] = "RESULTS PENDING"
-        //     await Attempt.updateOne({_id: updatedAttempt._id}, updatedAttempt);
-
-        //     res.send(updatedAttempt)
-        // } else {
-
-        // }
-        // res.send(updatedAttempt)
+        if (response.status == 200) {
+            updatedAttempt.status = "SUBMITTED"
+            await Attempt.updateOne({_id: updatedAttempt._id}, updatedAttempt);
+        } 
         res.redirect(`http://localhost:3000/challenges/${req.body.submission.challenge_id}/attempts/${req.body.submission.external_user_identifier}/success`)
     } catch(error){
         if (error.response) {
