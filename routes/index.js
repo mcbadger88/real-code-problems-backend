@@ -17,7 +17,7 @@ const seed = require('./seed');
 router.use('/candidates', express.json(), candidates);
 router.use('/challenges', express.json(), challenges)
 router.use('/challenges/:id/features', features)
-router.use('/:idtype/:id/attempts', express.json(), attempts)
+router.use('/:idtype/:id/attempts', express.urlencoded({ extended: true }), express.json(), attempts)
 router.use('/seed', express.json(), seed)
 
 router.use('/user', users)

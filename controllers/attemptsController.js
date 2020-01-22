@@ -57,10 +57,8 @@ const create = async(req, res) => {
 
 const update = async(req, res) => {
     console.log("in attempt update")
-    console.log(`req.body 1 ${JSON.stringify(req.body)}`)
-    console.log(`req ${JSON.stringify(req)}`)
-    // console.log(req.files)
-    
+    console.log(req.body)
+
     // look up the attempt by the attempt uuid 
     //send the req.body to michaels API "https://stg-real-code-runner.herokuapp.com/submissions"
     // if successful, save attempt.status to "SUBMITTED"
@@ -71,39 +69,19 @@ const update = async(req, res) => {
     const data = req.body
 
     // send req.body to michaels server
-    //send the req.body to michaels API "https://stg-real-code-runner.herokuapp.com/submissions"
-    var bodyFormData = new FormData();
-    console.log("after new form data")
-    for (key in data){
-        console.log(`saving key ${JSON.stringify(key)} ${JSON.stringify(data[key])}`)
-        bodyFormData.append(JSON.stringify(key), JSON.stringify(data[key]));
-    }
-
     try{
-
-        // bodyFormData.append('userName', 'Fred');
-        // bodyFormData.append('file', imageFile); 
-        // user_token: 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImE4MGE5MGEwLTAwZTctNDQ0Yy1hMDgzLWY3ZWI5YjU4ZjgxZiIsImV4cCI6MTU4NDQ5NjQyNX0.ekjDzZNUjFsTS3dmZCKOWPyY29_uJM7rMC6P_ipAu9M',
-        // submission: [Object: null prototype] {
-        //   challenge_id: 'd618a0cf-80f5-4368-acda-bd6f8f296ba0',
-        //   external_user_identifier: '764aa5d0-3b1f-11ea-acfb-439a69150d3b',
-        //   url: '',
-        //   text: '<h1>hello</h1>'
-        // }
-        console.log("after body form data")
-        console.log(`body form data ${bodyFormData}`)
+        const authToken = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImE4MGE5MGEwLTAwZTctNDQ0Yy1hMDgzLWY3ZWI5YjU4ZjgxZiIsImV4cCI6MTU4NDc2NjgwMn0.vav1dXN2oAViTOroBOE3Ctk06HFwUHA-bl0gPknYQgE"
 
         let response = await axios({
             method: 'post',
             url: 'https://stg-real-code-runner.herokuapp.com/submissions',
-            data: bodyFormData,
+            data: req.body,
             headers: {
-                'Content-Type': 'multipart/form-data',
-                'Cookie': "HnKFn0EwUl%2FPhBDmb6sGN4TX645oU7q7qwIUkQ3orUZdMSQNXapV4VI8jauY6Dqc%2BxZWfMlxYY9fbCOZzF6ZSqagMioHmqYWwnSS0dZxFFjxo00eAT9V9gqiKjgsNkoqgzMrBRskIQ7pz6ruy5zpeftIrsPc7Cdw8x%2B%2FIngEXZz1tnLgnXpUMAQQWYioTzdBPCLTOA772MNUyG%2Fsbeg8yCxlJgWiJQDOIb%2BRpLVozTIifYwaTPmW1Qnj1%2FBDWSjTuqIcUoZHtU%2FomEMPraWlHhbWHs25d7NuVjBkXrvPYibkITB8Ws8qtC8A0rR14qdbtejBQT%2FIzcziyh5b2zsWcvlp4R26ojqoucQIcIb6541w1DriQ3dKXktiqpkVAp0kXQ%2F7fo7jornVCenQ81B9B8uSGAFXchiBO17rr4izbojsbQfKHzn595qFgMWHOTPf%2Bl0hdZF75BKPWA6IP7ul0nIGykdq--neNSH66Gh3JzVez%2F--Vqqrg1Eo3D%2F7uYf5VFVgvw%3D%3D"
+                "AUTHORIZATION": `Token ${authToken}`
              }
         })
 
-        console.log(`response ${response}`)
+        console.log(response, "response")
 
 
 
@@ -116,7 +94,8 @@ const update = async(req, res) => {
         // } else {
 
         // }
-        res.send(updatedAttempt)
+        // res.send(updatedAttempt)
+        res.redirect(`http://localhost:3000/challenges/${req.body.submission.challenge_id}/attempts/${req.body.submission.external_user_identifier}/success`)
     } catch(error){
         if (error.response) {
             /*
