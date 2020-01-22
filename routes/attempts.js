@@ -9,7 +9,8 @@ const multerMiddleware = multer({ storage: multer.memoryStorage() }).fields([{na
 
 router.get('/', index);
 router.post('/', create);
-router.put('/:attemptid', update);
+//use post here as this update is coming via a HTML form, which does not support put methods
+router.post('/:attemptid', update);
 router.delete('/:id', destroy);
 router.put('/:id/result', result)
 router.post('/:id/upload', multerMiddleware, upload)
