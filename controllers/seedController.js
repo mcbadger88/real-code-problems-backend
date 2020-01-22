@@ -208,6 +208,7 @@ const seedAll = async(req, res) => {
                 zipFileLocation: "https://github.com/mcbadger88/real-code-problems-challengeZips/raw/master/challenge-introduction.zip",
                 active: true,
                 features: [chall1_feature1.db_id]
+
             }
         ];
         for (challenge of challenges) {
