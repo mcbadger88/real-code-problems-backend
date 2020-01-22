@@ -8,7 +8,6 @@ const axios = require('axios')
 // http://localhost:5000/challenges/5df865447947111ec1a81ca7/attempts
 const index = async (req, res) => {
     let {idtype, id} = req.params
-
     try{
         if (idtype === 'candidates'){
             const candidateAttempts = await Attempt.find({candidate_id: id}).populate({
