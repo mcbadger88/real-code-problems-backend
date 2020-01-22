@@ -68,7 +68,7 @@ const update = async(req, res) => {
     //send the req.body to michaels API "https://stg-real-code-runner.herokuapp.com/submissions"
     // if successful, save attempt.status to "SUBMITTED"
     // return the results of Michaels API call 
-    const updatedAttempt = await Attempt.findOne({ 'uuid': req.body.external_user_identifier})
+    const updatedAttempt = await Attempt.findOne({ 'uuid': req.body.submission.external_user_identifier})
     console.log(`found attempt ${updatedAttempt}`)
 
     const data = req.body
