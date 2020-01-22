@@ -42,10 +42,16 @@ const index = async (req, res) => {
 //QUESTION: how should we deal with the uuid field??
 const create = async(req, res) => {
     try{
-        const data = req.body;
+        const data = {}
+        console.log(req.body)
+        console.log(typeof(req.body))
+        const { candidate_id, challenge_id } = req.body
+        data.candidate_id = candidate_id
+        data.challenge_id = challenge_id
         data.status = 'STARTED'
         data.submission_file = 'null'
         data.uuid = uuidv1()
+
 
         await Attempt.create(data)
         res.send(data)
@@ -80,20 +86,16 @@ const update = async(req, res) => {
              }
         })
 
-        console.log(response, "response")
+        console.log(response.status, "response")
+        console.log(typeof(response.status), "response")
 
 
 
             
-        // if () {
-        //     updatedAttempt[status] = "RESULTS PENDING"
-        //     await Attempt.updateOne({_id: updatedAttempt._id}, updatedAttempt);
-
-        //     res.send(updatedAttempt)
-        // } else {
-
-        // }
-        // res.send(updatedAttempt)
+        if (response.status == 200) {
+            updatedAttempt.status = "SUBMITTED"
+            await Attempt.updateOne({_id: updatedAttempt._id}, updatedAttempt);
+        } 
         res.redirect(`http://localhost:3000/challenges/${req.body.submission.challenge_id}/attempts/${req.body.submission.external_user_identifier}/success`)
     } catch(error){
         if (error.response) {
@@ -101,10 +103,8 @@ const update = async(req, res) => {
              * The request was made and the server responded with a
              * status code that falls out of the range of 2xx
              */
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-            res.status(404).send(error.response)
+            console.log(error.response)
+            res.status(404).send(error)
         } else if (error.request) {
             /*
              * The request was made but no response was received, `error.request`
@@ -112,7 +112,7 @@ const update = async(req, res) => {
              * of http.ClientRequest in Node.js
              */
             console.log(error.request);
-            res.status(404).send(error.request)
+            res.status(404).send(error)
     } else {
             // Something happened in setting up the request and triggered an Error
             console.log('Error', error.message);
