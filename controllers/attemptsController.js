@@ -1,7 +1,6 @@
 const Attempt = require('../models/Attempt')
 const AWS = require('aws-sdk');
 const uuidv1 = require('uuid/v1');
-var FormData = require('form-data');
 const axios = require('axios')
 
 // returns a list of attempts, with populated candidate or challenge data, depending on the idtype.
