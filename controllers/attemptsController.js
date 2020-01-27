@@ -95,7 +95,7 @@ const update = async(req, res) => {
             updatedAttempt.status = "SUBMITTED"
             await Attempt.updateOne({_id: updatedAttempt._id}, updatedAttempt);
         } 
-        res.redirect(`http://localhost:3000/challenges/${req.body.submission.challenge_id}/attempts/${req.body.submission.external_user_identifier}/success`)
+        res.redirect(`${process.env.FRONTEND_BASE_URL}/challenges/${req.body.submission.challenge_id}/attempts/${req.body.submission.external_user_identifier}/success`)
     } catch(error){
         if (error.response) {
             /*
