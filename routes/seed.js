@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {seedAll, resetDb} = require('../controllers/seedController.js');
+const {seedAll, resetDb} = require('../controllers/seedControllerForPresentation.js');
 
 router.post('/all', seedAll)
 router.post('/reset', resetDb)

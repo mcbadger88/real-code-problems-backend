@@ -5,6 +5,9 @@ const testLineSchema = new Schema({
     testString: {
         type: String
     },
+    description: {
+        type: String
+    },
     helperImage: {
         type: String
     },
